@@ -75,12 +75,21 @@ class Knight < Piece
     def symbol
         "K"
     end
+
+    def move_diffs
+        [[-2, 1], [2, -1], [-2, -1], [2, 1], [1,-2], [-1,-2], [-1,2], [1, 2]]
+    end
+
 end
 
 class King < Piece
    
     def symbol
         "+"
+    end
+
+    def move_diffs
+        [[1, 1], [1, -1], [-1, -1], [-1, 1]]
     end
 end
 
