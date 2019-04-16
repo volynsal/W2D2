@@ -7,7 +7,7 @@ class Board
 
     def initialize
         @rows = Array.new(8) { Array.new(8) } 
-        #@sentinel = NullPiece.new
+        @sentinel = NullPiece.new
         setup
     end
 
@@ -22,12 +22,9 @@ class Board
     end
 
     def move_piece(start_pos, end_pos)
-        # debugger
-        # start = @rows[start_pos]
-        # final =  @rows[end_pos]
         raise "no piece at start position" unless self[start_pos].is_a?(Piece)
         raise "piece cannot move to this end position" unless self[end_pos] == nil
-        #debugger
+
         self[end_pos] = self[start_pos]
         self[start_pos] = nil
     end
@@ -67,6 +64,8 @@ class Board
                     @rows[idx1][idx2] = Pawn.new(:white, self, [idx1, idx2])
                 elsif idx1 == 6
                     @rows[idx1][idx2] = Pawn.new(:black, self, [idx1, idx2])
+                else
+                    @rows[idx1][idx2] = @sentinel
                 end
             end
         end
