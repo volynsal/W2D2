@@ -1,7 +1,7 @@
 
 class Piece
 
-    attr_reader :pos
+    attr_reader :pos, :board
     
     def initialize(color, board, pos)
         @color = color
@@ -40,13 +40,22 @@ class Rook < Piece
         "R"
     end
 
+    def move_dirs
+        HORIZONTAL_DIRS
+    end
+
 end
 
 class Bishop < Piece
-    # include Slideable
+    include Slideable
     def symbol
         "B"
     end
+
+    def move_dirs
+        DIAGONAL_DIRS  
+    end
+
 end
 
 class Queen < Piece
@@ -54,6 +63,10 @@ class Queen < Piece
 
     def symbol
         "Q"
+    end
+
+    def move_dirs
+        HORIZONTAL_DIRS + DIAGONAL_DIRS  
     end
 
 end

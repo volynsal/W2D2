@@ -73,3 +73,11 @@ class Board
     end
 end
 
+if __FILE__ == $PROGRAM_NAME
+    board = Board.new
+    #display = Display.new(board)
+    #display.renderf
+
+    rook = Rook.new(:black, board,)
+    p rook.grow_unblocked_moves_in_dir([0,1])
+end

@@ -92,7 +92,6 @@ class Cursor
     (0...@cursor_pos.length).each do |i|
       @cursor_pos[i] += diff[i]
     end
-
     @cursor_pos
   end
 end
